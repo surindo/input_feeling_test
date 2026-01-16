@@ -18,9 +18,23 @@
 </head>
 
 <body>
+<div id="loadingOverlay">
+  <div class="spinner"></div>
+  <p>Loading...</p>
+</div>
 <form id="myForm">
   <div class="container">
     <h2>Form Input Feeling Test</h2>
+
+    <!-- SESI -->
+    <div class="form-group">
+      <label for="sesi">Sesi</label>
+      <select id="sesi" required>
+        <option value="">-- Pilih Sesi --</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+      </select>
+    </div>
 
     <!-- TYPE -->
     <div class="form-group">
@@ -32,11 +46,11 @@
       </select>
     </div>
 
-    <!-- NAMA -->
+    <!-- Grup -->
     <div class="form-group">
-      <label for="name">Nama</label>
+      <label for="name">Grup</label>
       <select id="name" required>
-        <option value="">-- Pilih Nama --</option>
+        <option value="">-- Pilih Grup --</option>
 
         <optgroup label="Group A">
           <!-- A1 - A25 -->
@@ -58,34 +72,24 @@
       </select>
     </div>
 
-    <!-- SESI -->
-    <div class="form-group">
-      <label for="sesi">Sesi</label>
-      <select id="sesi" required>
-        <option value="">-- Pilih Sesi --</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-      </select>
-    </div>
-
     <hr>
 
     <!-- Dunlop -->
     <h3 class="dunlop">Dunlop</h3>
 
     <div class="input-group stability">
-      <label>Stability</label>
-      <input type="number" id="ds" min="0" max="100" step="0.01">
+      <label>Stability <small class="hint">(Min: 0 – Max: 4)</small></label>
+      <input type="number" id="ds" min="0" max="4" step="0.01">
     </div>
 
     <div class="input-group comfort">
-      <label>Comfort</label>
-      <input type="number" id="dc" min="0" max="100" step="0.01">
+      <label>Comfort <small class="hint">(Min: 0 – Max: 4)</small></label>
+      <input type="number" id="dc" min="0" max="4" step="0.01">
     </div>
 
     <div class="input-group noise">
-      <label>Noise</label>
-      <input type="number" id="dn" min="0" max="100" step="0.01">
+      <label>Noise <small class="hint">(Min: 40 – Max: 100)</small></label>
+      <input type="number" id="dn" min="40" max="100" step="0.01">
     </div>
 
     <hr>
@@ -94,18 +98,18 @@
     <h3 class="competitor">Kompetitor</h3>
 
     <div class="input-group stability">
-      <label>Stability</label>
-      <input type="number" id="ks" min="0" max="100" step="0.01">
+      <label>Stability <small class="hint">(Min: 0 – Max: 4)</small></label>
+      <input type="number" id="ks" min="0" max="4" step="0.01">
     </div>
 
     <div class="input-group comfort">
-      <label>Comfort</label>
-      <input type="number" id="kc" min="0" max="100" step="0.01">
+      <label>Comfort <small class="hint">(Min: 0 – Max: 4)</small></label>
+      <input type="number" id="kc" min="0" max="4" step="0.01">
     </div>
 
     <div class="input-group noise">
-      <label>Noise</label>
-      <input type="number" id="kn" min="0" max="100" step="0.01">
+      <label>Noise <small class="hint">(Min: 40 – Max: 100)</small></label>
+      <input type="number" id="kn" min="40" max="100" step="0.01">
     </div>
 
     <button type="submit" id="submit">Kirim Jawaban</button>
