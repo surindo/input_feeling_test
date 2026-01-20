@@ -172,3 +172,35 @@ function showLoading() {
 function hideLoading() {
   document.getElementById("loadingOverlay").style.display = "none";
 }
+
+const startDate = new Date("2026-01-19");
+const today = new Date();
+
+// Hitung selisih hari
+const diffTime = today.setHours(0,0,0,0) - startDate.setHours(0,0,0,0);
+const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+// Setiap hari maju 2 huruf
+const startCharCode = "A".charCodeAt(0) + (diffDays * 2);
+
+const group1 = String.fromCharCode(startCharCode);
+const group2 = String.fromCharCode(startCharCode + 1);
+
+const select = document.getElementById("name");
+
+// Fungsi buat option
+function createGroup(label) {
+  const optgroup = document.createElement("optgroup");
+  optgroup.label = `Group ${label}`;
+
+  for (let i = 1; i <= 25; i++) {
+    const option = document.createElement("option");
+    option.value = `${label}${i}`;
+    option.textContent = `${label}${i}`;
+    optgroup.appendChild(option);
+  }
+  return optgroup;
+}
+
+select.appendChild(createGroup(group1));
+select.appendChild(createGroup(group2));
