@@ -174,38 +174,38 @@ function hideLoading() {
 }
 
 /* ================= DYNAMIC NAME OPTIONS ================= */
-
 function getJakartaDate() {
   return new Date(
     new Date().toLocaleString("en-US", { timeZone: "Asia/Jakarta" })
   );
 }
 
-// Tanggal mulai: 20 Jan 2026
-const startDate = new Date("2026-01-20T00:00:00+07:00");
 const today = getJakartaDate();
-
-// Normalisasi jam
-startDate.setHours(0, 0, 0, 0);
 today.setHours(0, 0, 0, 0);
 
-// Hitung selisih hari
-const diffTime = today - startDate;
-const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+let groups = [];
 
-// Huruf awal = C
-const baseCharCode = "C".charCodeAt(0);
+// Khusus Januari 2026
+if (today.getFullYear() === 2026 && today.getMonth() === 0) {
+  const date = today.getDate();
 
-// Setiap hari lompat 4 huruf
-const startCharCode = baseCharCode + (diffDays * 4);
-
-// Ambil 4 group
-const groups = [
-  String.fromCharCode(startCharCode),
-  String.fromCharCode(startCharCode + 1),
-  String.fromCharCode(startCharCode + 2),
-  String.fromCharCode(startCharCode + 3),
-];
+  switch (date) {
+    case 20:
+      groups = ["C", "D", "E", "F"];
+      break;
+    case 21:
+      groups = ["G", "H"];
+      break;
+    case 22:
+      groups = ["I", "J"];
+      break;
+    case 23:
+      groups = ["K", "L"];
+      break;
+    default:
+      groups = [];
+  }
+}
 
 const select = document.getElementById("name");
 
@@ -234,5 +234,7 @@ function createGroup(label) {
 groups.forEach(group => {
   select.appendChild(createGroup(group));
 });
+
+
 
 
